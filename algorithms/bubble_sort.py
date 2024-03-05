@@ -1,7 +1,6 @@
 def bubbleSort(arr):
     n = len(arr)
     for i in range(n):
-        print(i)
         for j in range(n - i):
             a = arr[j]
             if a != arr[-1]:
