@@ -1,4 +1,4 @@
-let s = "my name is anish  ";
+let s = "  hello  there  ";
 let a = s.trim().split(" ");
 console.log(a);
 
