@@ -8,3 +8,9 @@ FROM
     Person
 LEFT OUTER JOIN
     Address ON Person.personId = Address.personId;
+
+--Write a solution to find the employees who earn more than their managers.
+select e1.name 'Employee'
+from employee e1
+inner join employee e2 on
+e1.managerid=e2.id where e1.salary >e2.salary;
