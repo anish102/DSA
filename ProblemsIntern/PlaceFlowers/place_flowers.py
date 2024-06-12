@@ -34,7 +34,6 @@ n = 1
 
 count = 0
 length = len(flowerbed)
-
 for i in range(length):
     if length == 1:
         if flowerbed[0] == 0:
