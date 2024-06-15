@@ -6,11 +6,23 @@ SELECT
     Address.state
 FROM
     Person
-LEFT OUTER JOIN
-    Address ON Person.personId = Address.personId;
+    LEFT OUTER JOIN Address ON Person.personId = Address.personId;
 
 --Write a solution to find the employees who earn more than their managers.
-select e1.name 'Employee'
-from employee e1
-inner join employee e2 on
-e1.managerid=e2.id where e1.salary >e2.salary;
+select
+    e1.name 'Employee'
+from
+    employee e1
+    inner join employee e2 on e1.managerid = e2.id
+where
+    e1.salary > e2.salary;
+
+--Write a solution to report all the duplicate emails.
+select
+    email as Email
+from
+    Person
+group by
+    email
+having
+    count(email) > 1;
