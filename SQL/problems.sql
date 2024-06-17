@@ -26,3 +26,12 @@ group by
     email
 having
     count(email) > 1;
+
+--Write a solution to find all customers who never order anything.
+select
+    name as Customers
+from
+    Customers C1
+    left outer join Orders O1 on C1.id = O1.customerId
+where
+    O1.id is Null;
