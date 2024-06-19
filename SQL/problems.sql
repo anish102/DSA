@@ -35,3 +35,12 @@ from
     left outer join Orders O1 on C1.id = O1.customerId
 where
     O1.id is Null;
+
+--Write a solution to delete all duplicate emails, keeping only one unique email with the smallest id.
+delete p1
+from
+    Person as P1,
+    Person as P2
+where
+    P1.email = P2.email
+    and p1.id > p2.id;
