@@ -44,3 +44,13 @@ from
 where
     P1.email = P2.email
     and p1.id > p2.id;
+
+--Write a solution to find all the classes that have at least five students.
+select
+    class
+from
+    Courses
+group by
+    class
+having
+    count(class) > 4;
