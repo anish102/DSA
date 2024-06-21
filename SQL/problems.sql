@@ -54,3 +54,12 @@ group by
     class
 having
     count(class) > 4;
+
+--Write a solution to report the name and bonus amount of each employee with a bonus less than 1000.
+SELECT employee.NAME,
+       bonus.bonus
+FROM   employee
+       LEFT OUTER JOIN bonus
+                    ON employee.empid = bonus.empid
+WHERE  bonus.bonus < 1000
+        OR bonus IS NULL; 
