@@ -56,10 +56,22 @@ having
     count(class) > 4;
 
 --Write a solution to report the name and bonus amount of each employee with a bonus less than 1000.
-SELECT employee.NAME,
-       bonus.bonus
-FROM   employee
-       LEFT OUTER JOIN bonus
-                    ON employee.empid = bonus.empid
-WHERE  bonus.bonus < 1000
-        OR bonus IS NULL; 
+SELECT
+    employee.NAME,
+    bonus.bonus
+FROM
+    employee
+    LEFT OUTER JOIN bonus ON employee.empid = bonus.empid
+WHERE
+    bonus.bonus < 1000
+    OR bonus IS NULL;
+
+--Write a solution to find all dates' Id with higher temperatures compared to its previous dates (yesterday).
+select
+    R1.id
+from
+    Weather as R1,
+    Weather as R2
+where
+    dateDiff(R1.recordDate, R2.recordDate) = 1
+    and R1.temperature > R2.temperature;
