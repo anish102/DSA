@@ -75,3 +75,9 @@ from
 where
     dateDiff(R1.recordDate, R2.recordDate) = 1
     and R1.temperature > R2.temperature;
+
+--Find the names of the customer that are not referred by the customer with id = 2.
+--select name from Customer where referee_id != 2 or referee_id is null;
+SELECT NAME
+FROM   customer
+WHERE  COALESCE(referee_id, '') != 2;
