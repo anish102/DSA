@@ -78,13 +78,32 @@ where
 
 --Find the names of the customer that are not referred by the customer with id = 2.
 --select name from Customer where referee_id != 2 or referee_id is null;
-SELECT NAME
-FROM   customer
-WHERE  COALESCE(referee_id, '') != 2;
+SELECT
+    NAME
+FROM
+    customer
+WHERE
+    COALESCE(referee_id, '') != 2;
 
 --Write a solution to find the customer_number for the customer who has placed the largest number of orders.
-SELECT customer_number
-FROM   orders
-GROUP  BY customer_number
-ORDER  BY Count(*) DESC
-LIMIT  1; 
+SELECT
+    customer_number
+FROM
+    orders
+GROUP BY
+    customer_number
+ORDER BY
+    Count(*) DESC
+LIMIT
+    1;
+
+--Write a solution to find the name, population, and area of the big countries.
+Select
+    name,
+    population,
+    area
+from
+    World
+where
+    area >= 3000000
+    or population >= 25000000;
