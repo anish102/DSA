@@ -117,3 +117,7 @@ WHERE sales_id NOT IN (
     LEFT JOIN Company AS C ON O.com_id = C.com_id 
     WHERE C.name = "RED"
 );
+
+--Write a solution to swap all 'f' and 'm' values (i.e., change all 'f' values to 'm' and vice versa).
+update salary
+set sex = if(sex = 'm', 'f', 'm');
