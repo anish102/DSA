@@ -128,3 +128,10 @@ FROM   cinema
 WHERE  description != "boring"
        AND id % 2 != 0
 ORDER  BY rating DESC;
+
+--Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
+SELECT employeeuni.unique_id,
+       employees.NAME
+FROM   employees
+       LEFT OUTER JOIN employeeuni
+                    ON employees.id = employeeuni.id; 
