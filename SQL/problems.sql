@@ -109,35 +109,51 @@ where
     or population >= 25000000;
 
 --Write a solution to find the names of all the salespersons who did not have any orders related to the company with the name "RED".
-SELECT name 
-FROM SalesPerson 
-WHERE sales_id NOT IN (
-    SELECT O.sales_id 
-    FROM Orders AS O 
-    LEFT JOIN Company AS C ON O.com_id = C.com_id 
-    WHERE C.name = "RED"
-);
+SELECT
+    name
+FROM
+    SalesPerson
+WHERE
+    sales_id NOT IN (
+        SELECT
+            O.sales_id
+        FROM
+            Orders AS O
+            LEFT JOIN Company AS C ON O.com_id = C.com_id
+        WHERE
+            C.name = "RED"
+    );
 
 --Write a solution to swap all 'f' and 'm' values (i.e., change all 'f' values to 'm' and vice versa).
-update salary
-set sex = if(sex = 'm', 'f', 'm');
+update
+    salary
+set
+    sex = if(sex = 'm', 'f', 'm');
 
 --Write a solution to report the movies with an odd-numbered ID and a description that is not "boring". Return the result table ordered by rating in descending order.
-SELECT *
-FROM   cinema
-WHERE  description != "boring"
-       AND id % 2 != 0
-ORDER  BY rating DESC;
+SELECT
+    *
+FROM
+    cinema
+WHERE
+    description != "boring"
+    AND id % 2 != 0
+ORDER BY
+    rating DESC;
 
 --Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
-SELECT employeeuni.unique_id,
-       employees.NAME
-FROM   employees
-       LEFT OUTER JOIN employeeuni
-                    ON employees.id = employeeuni.id; 
+SELECT
+    employeeuni.unique_id,
+    employees.NAME
+FROM
+    employees
+    LEFT OUTER JOIN employeeuni ON employees.id = employeeuni.id;
 
 --Write a solution to find the first login date for each player.
-SELECT player_id,
-       Min(event_date) AS "first_login"
-FROM   activity
-GROUP  BY player_id; 
+SELECT
+    player_id,
+    Min(event_date) AS "first_login"
+FROM
+    activity
+GROUP BY
+    player_id;
