@@ -157,3 +157,11 @@ FROM
     activity
 GROUP BY
     player_id;
+
+--Report for every three line segments whether they can form a triangle.
+SELECT x,y,z,
+CASE 
+WHEN x+y>z AND y+z>x AND z+x>y THEN 'Yes' 
+ELSE 'No' 
+end AS triangle 
+FROM Triangle;
