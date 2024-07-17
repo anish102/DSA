@@ -165,3 +165,12 @@ WHEN x+y>z AND y+z>x AND z+x>y THEN 'Yes'
 ELSE 'No' 
 end AS triangle 
 FROM Triangle;
+
+--Find the largest single number. If there is no single number, report null.
+SELECT MAX(num) AS num 
+FROM (
+    SELECT num 
+    FROM MyNumbers 
+    GROUP BY num
+    HAVING count(*) = 1 
+) AS num;
