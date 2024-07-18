@@ -174,3 +174,16 @@ FROM (
     GROUP BY num
     HAVING count(*) = 1 
 ) AS num;
+
+--Write a solution to report the distance traveled by each user.
+SELECT users.NAME,
+       Sum(CASE
+             WHEN users.id = rides.user_id THEN distance
+             ELSE 0
+           END)AS travelled_distance
+FROM   users
+       LEFT OUTER JOIN rides
+                    ON users.id = rides.user_id
+GROUP  BY users.id
+ORDER  BY Sum(distance) DESC,
+          NAME ASC; 
