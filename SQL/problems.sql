@@ -159,31 +159,15 @@ GROUP BY
     player_id;
 
 --Report for every three line segments whether they can form a triangle.
-SELECT x,y,z,
-CASE 
-WHEN x+y>z AND y+z>x AND z+x>y THEN 'Yes' 
-ELSE 'No' 
-end AS triangle 
-FROM Triangle;
-
---Find the largest single number. If there is no single number, report null.
-SELECT MAX(num) AS num 
-FROM (
-    SELECT num 
-    FROM MyNumbers 
-    GROUP BY num
-    HAVING count(*) = 1 
-) AS num;
-
---Write a solution to report the distance traveled by each user.
-SELECT users.NAME,
-       Sum(CASE
-             WHEN users.id = rides.user_id THEN distance
-             ELSE 0
-           END)AS travelled_distance
-FROM   users
-       LEFT OUTER JOIN rides
-                    ON users.id = rides.user_id
-GROUP  BY users.id
-ORDER  BY Sum(distance) DESC,
-          NAME ASC; 
+SELECT
+    x,
+    y,
+    z,
+    CASE
+        WHEN x + y > z
+        AND y + z > x
+        AND z + x > y THEN 'Yes'
+        ELSE 'No'
+    end AS triangle
+FROM
+    Triangle;
