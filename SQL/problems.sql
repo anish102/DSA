@@ -171,3 +171,11 @@ SELECT
     end AS triangle
 FROM
     Triangle;
+
+--Write a solution to find all the pairs (actor_id, director_id) where the actor has cooperated with the director at least three times.
+SELECT actor_id,
+       director_id
+FROM   ActorDirector
+GROUP  BY actor_id,
+          director_id
+HAVING Count(*) >= 3;
