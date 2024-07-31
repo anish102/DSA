@@ -173,9 +173,22 @@ FROM
     Triangle;
 
 --Write a solution to find all the pairs (actor_id, director_id) where the actor has cooperated with the director at least three times.
-SELECT actor_id,
-       director_id
-FROM   ActorDirector
-GROUP  BY actor_id,
-          director_id
-HAVING Count(*) >= 3;
+SELECT
+    actor_id,
+    director_id
+FROM
+    ActorDirector
+GROUP BY
+    actor_id,
+    director_id
+HAVING
+    Count(*) >= 3;
+
+--Write a solution to find the ids of products that are both low fat and recyclable.
+Select
+    product_id
+FROM
+    Products
+WHERE
+    low_fats = "Y"
+    AND recyclable = "Y";
