@@ -201,3 +201,8 @@ FROM
     Teacher
 GROUP BY
     teacher_id;
+
+--Write a solution to find the IDs of the invalid tweets.
+SELECT tweet_id
+FROM   Tweets
+WHERE  Length(content) > 15;
