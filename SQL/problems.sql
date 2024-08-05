@@ -206,3 +206,10 @@ GROUP BY
 SELECT tweet_id
 FROM   Tweets
 WHERE  Length(content) > 15;
+
+--Write a solution to report the latest login for all users in the year 2020.
+SELECT user_id,
+       Max(time_stamp) AS last_stamp
+FROM   logins
+WHERE  Year(time_stamp) = 2020
+GROUP  BY user_id; 
