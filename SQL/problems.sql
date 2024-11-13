@@ -231,4 +231,15 @@ GROUP BY
     user_id
 ORDER BY
     user_id ASC;
+
+--Write a solution to find the patient_id, patient_name, and conditions of the patients who have Type I Diabetes.
+SELECT
+    patient_id,
+    patient_name,
+    conditions
+FROM
+    Patients
+WHERE
+    conditions like "% DIAB1%"
+    OR conditions like "DIAB1%";
     
