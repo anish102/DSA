@@ -242,4 +242,13 @@ FROM
 WHERE
     conditions like "% DIAB1%"
     OR conditions like "DIAB1%";
+
+--Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
+SELECT
+    Sales.year,
+    Sales.price,
+    Product.product_name
+FROM
+    Sales
+    JOIN Product ON Sales.product_id = Product.product_id;
     
